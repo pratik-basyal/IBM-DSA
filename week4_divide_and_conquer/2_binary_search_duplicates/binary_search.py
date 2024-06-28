@@ -1,7 +1,25 @@
 def binary_search(keys, query):
     # write your code here
-    pass
+    #since keys are sorted
+    left = 0
+    right = len(keys) - 1
+    result = -1 #default value if we don't find the query
 
+    while(left <= right) :
+        middle = left + (right - left) // 2
+        #for duplicates element : even after we find the element we continue searching for the query
+        if keys[middle] == query :
+            result = middle
+            right = middle - 1
+
+        elif keys[middle] < query :
+            left = middle + 1
+        
+        elif keys[middle] > query :
+            right = middle - 1
+    
+
+    return result
 
 if __name__ == '__main__':
     num_keys = int(input())

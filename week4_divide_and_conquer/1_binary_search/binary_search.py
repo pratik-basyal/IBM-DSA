@@ -1,5 +1,21 @@
 def binary_search(keys, query):
     # write your code here
+    #since keys are sorted
+    left = 0
+    right = len(keys) - 1
+
+    while(left <= right) :
+        middle = left + (right - left) // 2
+        if keys[middle] == query : return middle
+
+        elif keys[middle] < query :
+            left = middle + 1
+        
+        elif keys[middle] > query :
+            right = middle - 1
+    
+
+    return -1
 
 
 if __name__ == '__main__':
@@ -13,3 +29,4 @@ if __name__ == '__main__':
 
     for q in input_queries:
         print(binary_search(input_keys, q), end=' ')
+ 
